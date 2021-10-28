@@ -122,9 +122,23 @@ nav ul{
   gap: 15px;
 }
 
-/* nav ul li {
-margin-left: 15px;
-} */
+
+nav ul li a {
+  background: linear-gradient(to bottom, #00000000 0%, #00000000 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size:2px 2px;
+
+  transition: .5s;
+}
+
+nav ul li a:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23CBA5EA' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: 0 100%;
+  background-size: auto 6px;
+  background-repeat: repeat-x;
+}
+
 
 /***** scroll back to top button *****/
 #back2Top img{
@@ -205,7 +219,9 @@ section:nth-of-type(2){
 section:nth-of-type(2) div{
   background-color: #2C2C30;
 
-  margin:15px 0;
+  margin:15px ;
+  /* width: 360px;
+  height: 320px; */
   padding: 0 20px;
   cursor: pointer;
   overflow:hidden;
@@ -214,7 +230,10 @@ section:nth-of-type(2) div{
 
 section:nth-of-type(2) div:hover{
   background-color:#CBA5EA;
-  transition: 1s;
+  border-radius: 30px;
+  box-shadow: rgba(240, 195, 46, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  transition: 0.7s;
+  transform: scale(1.1);
 }
 
 section:nth-of-type(2) div:focus{
@@ -225,23 +244,78 @@ section:nth-of-type(2) div:focus{
 section:nth-of-type(2) div:active{
   opacity: 50%;
   transition: 1s;
+  scale: 0.8;
+  box-shadow:none;
+  background:none;
 }
 
 section:nth-of-type(2) div:hover h2{
   color: #090809;
   text-decoration: underline;
-  scale: 1.1;
   transition: 0.5s;
+  transform: scale(1);
 }
 
 section:nth-of-type(2) div:hover img{
-  scale:1.1;
-  transform: rotate(-10deg);
-  
-  transition: 0.5s;
+
+
+  -webkit-animation-name: wiggle;
+  -ms-animation-name: wiggle;
+
+  animation-name: wiggle;
+
+  -ms-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+
+  -webkit-animation-duration: 1000ms;
+
+  -webkit-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+
+  animation-iteration-count: 1;
+
+  -webkit-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+
+  animation-timing-function: ease-in-out;
+
 }
 
 
+@-webkit-keyframes wiggle {
+  0% {-webkit-transform: rotate(10deg);}
+  25% {-webkit-transform: rotate(-10deg);}
+  50% {-webkit-transform: rotate(20deg);}
+  75% {-webkit-transform: rotate(-5deg);}
+  100% {-webkit-transform: rotate(0deg);}
+}
+
+@-ms-keyframes wiggle {
+  0% {-ms-transform: rotate(1deg);}
+  25% {-ms-transform: rotate(-1deg);}
+  50% {-ms-transform: rotate(1.5deg);}
+  75% {-ms-transform: rotate(-5deg);}
+  100% {-ms-transform: rotate(0deg);}
+}
+
+@keyframes wiggle {
+  0% {transform: rotate(10deg);}
+  25% {transform: rotate(-10deg);}
+  50% {transform: rotate(20deg);}
+  75% {transform: rotate(-5deg);}
+  100% {transform: rotate(0deg);}
+}
+
+
+
+
+
+
+
+
+section:nth-of-type(2) div a:focus{
+  background:none;
+}
 
 
 section:nth-of-type(2) div a{
@@ -253,6 +327,7 @@ section:nth-of-type(2) div a{
 section:nth-of-type(2) div img{
   width: 300px;
   margin:20px 0;
+  transition: 1s;
 }
 
 section:nth-of-type(2) div h2{
@@ -488,6 +563,25 @@ font-weight: 600;
   margin-top: 20px;
 }
 
+
+
+/****************************************************************/
+/* styling voor Ipad/desktop als de browser minimaal 800px breed is */
+/****************************************************************/
+@media screen and (min-width: 800px) {
+
+  section:nth-of-type(2){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+ 
+  }
+
+}
+
+
+
+
 /****************************************************************/
 /* styling voor Ipad/desktop als de browser minimaal 1000px breed is */
 /****************************************************************/
@@ -543,7 +637,7 @@ font-weight: 600;
   }
 
   section:nth-of-type(2) div{
-  margin:10px 5px;
+  margin:10px 10px;
 
   }
 
