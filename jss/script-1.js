@@ -21,15 +21,7 @@ function topFunction() {
 }
 
 
-
-
-
-
-
-
 var lightDark = document.getElementById("lightDarkMode");
-var mobilee = document.getElementById("mobile");
-var desktopp = document.getElementById('desktop');
 
 
 if(localStorage.getItem("theme") == null){
@@ -41,16 +33,13 @@ let localData = localStorage.getItem("theme");
 
 if(localData == "dark"){
   lightDark.src = "img/sun.png";
-  mobilee.src = "img/Group34.svg";
-  desktopp.src = "img/Group35.svg";
+
   document.body.classList.remove("light-mode");
 }
 else if(localData == "light"){
   lightDark.src = "img/moon.png";
   console.log('itworks')
-  console.log(mobilee);
-  mobilee.src = "img/Group34Light.svg";
-  desktopp.src = "img/Group35Light.svg";
+
   document.body.classList.add("light-mode");
 
 }
@@ -60,14 +49,10 @@ lightDark.onclick = function(){
   document.body.classList.toggle("light-mode");
   if(document.body.classList.contains("light-mode")){
     lightDark.src = "img/moon.png";
-    mobilee.src = "img/Group34Light.svg";
-    desktopp.src = "img/Group35Light.svg";
     localStorage.setItem('theme', "light");
 
   }else {
     lightDark.src = "img/sun.png";
-    mobilee.src = "img/Group34.svg";
-    desktopp.src = "img/Group35.svg";
     localStorage.setItem('theme', "dark");
 
   }
