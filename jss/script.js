@@ -1,4 +1,7 @@
+AOS.init();
 
+
+///////// BACK TO TOP //////////
 var mybutton = document.getElementById("back2Top");
 
 mybutton.hidden=true
@@ -26,7 +29,7 @@ function topFunction() {
 
 
 
-
+///////// DARK LIGHT MODE //////////
 var lightDark = document.getElementById("lightDarkMode");
 var mobilee = document.getElementById("mobile");
 var desktopp = document.getElementById('desktop');
